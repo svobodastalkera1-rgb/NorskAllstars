@@ -1,0 +1,129 @@
+{
+  "sentences": [
+    {
+      "wordId": 2,
+      "norwegian": "Jeg er student.",
+      "russian": "Я студент."
+    },
+    {
+      "wordId": 2,
+      "norwegian": "Hun er lege.",
+      "russian": "Она врач."
+    },
+    {
+      "wordId": 2,
+      "norwegian": "Vi er i Norge.",
+      "russian": "Мы в Норвегии."
+    },
+    {
+      "wordId": 2,
+      "norwegian": "De er glade.",
+      "russian": "Они счастливы."
+    },
+    {
+      "wordId": 2,
+      "norwegian": "Det er varmt i dag.",
+      "russian": "Сегодня тепло."
+    },
+    {
+      "wordId": 7,
+      "norwegian": "Jeg har en bok.",
+      "russian": "У меня есть книга."
+    },
+    {
+      "wordId": 7,
+      "norwegian": "Han har to søstre.",
+      "russian": "У него есть две сестры."
+    },
+    {
+      "wordId": 7,
+      "norwegian": "Vi har et hus.",
+      "russian": "У нас есть дом."
+    },
+    {
+      "wordId": 7,
+      "norwegian": "Hun har en bil.",
+      "russian": "У нее есть машина."
+    },
+    {
+      "wordId": 7,
+      "norwegian": "De har en katt.",
+      "russian": "У них есть кот."
+    },
+    {
+      "wordId": 9,
+      "norwegian": "Jeg vil si noe.",
+      "russian": "Я хочу что-то сказать."
+    },
+    {
+      "wordId": 9,
+      "norwegian": "Hva vil du si?",
+      "russian": "Что ты хочешь сказать?"
+    },
+    {
+      "wordId": 9,
+      "norwegian": "La meg si takk.",
+      "russian": "Позвольте мне сказать спасибо."
+    },
+    {
+      "wordId": 9,
+      "norwegian": "Hun kan si nei.",
+      "russian": "Она может сказать нет."
+    },
+    {
+      "wordId": 9,
+      "norwegian": "Jeg må si sannheten.",
+      "russian": "Я должен сказать правду."
+    },
+    {
+      "wordId": 14,
+      "norwegian": "Hva gjør du?",
+      "russian": "Что ты делаешь?"
+    },
+    {
+      "wordId": 14,
+      "norwegian": "Jeg gjør lekser.",
+      "russian": "Я делаю уроки."
+    },
+    {
+      "wordId": 14,
+      "norwegian": "Hun gjør en god jobb.",
+      "russian": "Она делает хорошую работу."
+    },
+    {
+      "wordId": 14,
+      "norwegian": "Vi gjør det sammen.",
+      "russian": "Мы делаем это вместе."
+    },
+    {
+      "wordId": 14,
+      "norwegian": "Hva kan jeg gjøre?",
+      "russian": "Что я могу сделать?"
+    },
+    {
+      "wordId": 19,
+      "norwegian": "Jeg ser en fugl.",
+      "russian": "Я вижу птицу."
+    },
+    {
+      "wordId": 19,
+      "norwegian": "Kan du se huset?",
+      "russian": "Ты видишь дом?"
+    },
+    {
+      "wordId": 19,
+      "norwegian": "Vi ser på TV.",
+      "russian": "Мы смотрим телевизор."
+    },
+    {
+      "wordId": 19,
+      "norwegian": "Jeg vil se filmen.",
+      "russian": "Я хочу посмотреть фильм."
+    },
+    {
+      "wordId": 19,
+      "norwegian": "De ser hverandre.",
+      "russian": "Они видят друг друга."
+    }
+  ]
+}
