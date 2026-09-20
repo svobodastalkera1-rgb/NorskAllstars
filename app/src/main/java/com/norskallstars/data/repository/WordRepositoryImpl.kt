@@ -19,4 +19,5 @@ class WordRepositoryImpl @Inject constructor(
     override suspend fun deleteAllWords() = wordDao.deleteAllWords()
     override fun getLearnedWordsCount(): Flow<Int> = wordDao.getLearnedWordsCount()
     override suspend fun getRandomWords(limit: Int): List<WordEntity> = wordDao.getRandomWords(limit)
+    override fun getWordsForReview(currentTime: Long): Flow<List<WordEntity>> = wordDao.getWordsForReview(currentTime)
 }

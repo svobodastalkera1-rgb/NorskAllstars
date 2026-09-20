@@ -19,8 +19,10 @@ object AppModule {
         return Room.databaseBuilder(
             context,
             NorskDatabase::class.java,
-            "norsk-database"
-        ).build()
+            "norsk_database"
+        )
+            .fallbackToDestructiveMigration()
+            .build()
     }
 
     @Provides
@@ -34,4 +36,8 @@ object AppModule {
     @Provides
     @Singleton
     fun provideAchievementDao(database: NorskDatabase) = database.achievementDao()
+
+    @Provides
+    @Singleton
+    fun provideUserStatsDao(database: NorskDatabase) = database.userStatsDao()
 }

@@ -2,10 +2,14 @@ package com.norskallstars.di
 
 import android.content.Context
 import com.norskallstars.domain.use_case.GetLearnedWordsCount
+import com.norskallstars.domain.use_case.GetTotalWordsCount
 import com.norskallstars.domain.use_case.GetRandomWords
 import com.norskallstars.domain.use_case.GetSentencesForWord
+import com.norskallstars.domain.use_case.GetUserStats
 import com.norskallstars.domain.use_case.InitializeDatabase
+import com.norskallstars.domain.use_case.UpdateUserStats
 import com.norskallstars.domain.repository.SentenceRepository
+import com.norskallstars.domain.repository.UserStatsRepository
 import com.norskallstars.domain.repository.WordRepository
 import dagger.Module
 import dagger.Provides
@@ -19,6 +23,18 @@ import javax.inject.Singleton
 object UseCaseModule {
     @Provides
     @Singleton
+    fun provideGetUserStats(repository: UserStatsRepository): GetUserStats {
+        return GetUserStats(repository)
+    }
+
+    @Provides
+    @Singleton
+    fun provideUpdateUserStats(repository: UserStatsRepository): UpdateUserStats {
+        return UpdateUserStats(repository)
+    }
+
+    @Provides
+    @Singleton
     fun provideGetRandomWords(repository: WordRepository): GetRandomWords {
         return GetRandomWords(repository)
     }
@@ -27,6 +43,12 @@ object UseCaseModule {
     @Singleton
     fun provideGetLearnedWordsCount(repository: WordRepository): GetLearnedWordsCount {
         return GetLearnedWordsCount(repository)
+    }
+
+    @Provides
+    @Singleton
+    fun provideGetTotalWordsCount(repository: WordRepository): GetTotalWordsCount {
+        return GetTotalWordsCount(repository)
     }
 
     @Provides

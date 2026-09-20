@@ -6,20 +6,23 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.norskallstars.data.local.dao.AchievementDao
 import com.norskallstars.data.local.dao.SentenceDao
+import com.norskallstars.data.local.dao.UserStatsDao
 import com.norskallstars.data.local.dao.WordDao
 import com.norskallstars.data.local.entities.AchievementEntity
 import com.norskallstars.data.local.entities.SentenceEntity
+import com.norskallstars.data.local.entities.UserStatsEntity
 import com.norskallstars.data.local.entities.WordEntity
 
 @Database(
-    entities = [WordEntity::class, SentenceEntity::class, AchievementEntity::class],
-    version = 1,
+    entities = [WordEntity::class, SentenceEntity::class, AchievementEntity::class, UserStatsEntity::class],
+    version = 2,
     exportSchema = false
 )
 abstract class NorskDatabase : RoomDatabase() {
     abstract fun wordDao(): WordDao
     abstract fun sentenceDao(): SentenceDao
     abstract fun achievementDao(): AchievementDao
+    abstract fun userStatsDao(): UserStatsDao
 
     companion object {
         @Volatile

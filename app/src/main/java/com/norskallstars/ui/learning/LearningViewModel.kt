@@ -8,6 +8,7 @@ import androidx.lifecycle.viewModelScope
 import com.norskallstars.data.local.entities.WordEntity
 import com.norskallstars.domain.use_case.GetRandomWords
 import com.norskallstars.domain.use_case.GetSentencesForWord
+import com.norskallstars.domain.use_case.UpdateUserStats
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -22,6 +23,7 @@ import com.norskallstars.R
 class LearningViewModel @Inject constructor(
     private val getRandomWords: GetRandomWords,
     private val getSentencesForWord: GetSentencesForWord,
+    private val updateUserStats: UpdateUserStats,
     @ApplicationContext private val context: Context
 ) : ViewModel(), TextToSpeech.OnInitListener {
 
@@ -33,6 +35,8 @@ class LearningViewModel @Inject constructor(
     private var successSoundPlayer: MediaPlayer? = null
     private var errorSoundPlayer: MediaPlayer? = null
     private var currentQuestion: LearningScreenState.Question? = null
+
+    private var lastActionTime: Long = System.currentTimeMillis()
 
     init {
         tts = TextToSpeech(context, this)
@@ -100,7 +104,19 @@ class LearningViewModel @Inject constructor(
         }
     }
 
+    private fun recordLearningTime() {
+        val now = System.currentTimeMillis()
+        val duration = now - lastActionTime
+        if (duration > 0) {
+            viewModelScope.launch {
+                updateUserStats(duration)
+            }
+        }
+        lastActionTime = now
+    }
+
     fun checkAnswer(selectedAnswer: String): LearningScreenState.Result {
+        recordLearningTime()
         val currentState = _state.value
         return if (currentState is LearningScreenState.Question) {
             val isCorrect = selectedAnswer == currentState.correctAnswer
@@ -158,6 +174,7 @@ class LearningViewModel @Inject constructor(
     }
 
     override fun onCleared() {
+        recordLearningTime()
         super.onCleared()
         tts?.stop()
         tts?.shutdown()

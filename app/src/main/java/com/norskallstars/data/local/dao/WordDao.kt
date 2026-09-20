@@ -39,4 +39,7 @@ interface WordDao {
 
     @Query("SELECT * FROM words ORDER BY RANDOM() LIMIT :limit")
     suspend fun getRandomWords(limit: Int): List<WordEntity>
+
+    @Query("SELECT * FROM words WHERE next_review_date <= :currentTime")
+    fun getWordsForReview(currentTime: Long): Flow<List<WordEntity>>
 }

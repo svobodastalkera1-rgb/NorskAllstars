@@ -14,4 +14,5 @@ interface WordRepository {
     suspend fun deleteAllWords()
     fun getLearnedWordsCount(): Flow<Int>
     suspend fun getRandomWords(limit: Int): List<WordEntity>
+    fun getWordsForReview(currentTime: Long): Flow<List<WordEntity>>
 }

@@ -12,4 +12,6 @@
     <string name="level_a2">Уровень A2</string>
     <string name="level_b1">Уровень B1</string>
     <string name="level_b2">Уровень B2</string>
+    <string name="level_progress_title">Прогресс по уровням</string>
+    <string name="days_unit">%1$d дней</string>
 </resources>

@@ -1,8 +1,10 @@
 package com.norskallstars.di
 
 import com.norskallstars.data.repository.SentenceRepositoryImpl
+import com.norskallstars.data.repository.UserStatsRepositoryImpl
 import com.norskallstars.data.repository.WordRepositoryImpl
 import com.norskallstars.domain.repository.SentenceRepository
+import com.norskallstars.domain.repository.UserStatsRepository
 import com.norskallstars.domain.repository.WordRepository
 import dagger.Binds
 import dagger.Module
@@ -20,4 +22,8 @@ abstract class RepositoryModule {
     @Binds
     @Singleton
     abstract fun bindSentenceRepository(impl: SentenceRepositoryImpl): SentenceRepository
+
+    @Binds
+    @Singleton
+    abstract fun bindUserStatsRepository(impl: UserStatsRepositoryImpl): UserStatsRepository
 }

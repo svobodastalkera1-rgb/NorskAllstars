@@ -1,7 +1,6 @@
 package com.norskallstars.ui.main
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -23,12 +22,13 @@ import androidx.compose.material.icons.filled.Star
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -40,6 +40,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.norskallstars.R
 import androidx.compose.ui.tooling.preview.Preview
 import com.norskallstars.ui.theme.NorskAllstarsTheme
@@ -51,13 +52,29 @@ fun MainScreen(
     onAchievements: () -> Unit = {},
     onSettings: () -> Unit = {}
 ) {
-    val state by viewModel.state.collectAsState()
+    val state by viewModel.state.collectAsStateWithLifecycle()
 
     // Сбрасываем состояние при каждом появлении экрана
     LaunchedEffect(Unit) {
         viewModel.resetLoadingState()
     }
 
+    MainContent(
+        state = state,
+        onStartLearning = onStartLearning,
+        onAchievements = onAchievements,
+        onSettings = onSettings
+    )
+}
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+private fun MainContent(
+    state: MainScreenState,
+    onStartLearning: () -> Unit,
+    onAchievements: () -> Unit,
+    onSettings: () -> Unit
+) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -79,14 +96,14 @@ fun MainScreen(
                 fontWeight = FontWeight.Bold
             )
 
-            Icon(
-                imageVector = Icons.Default.Settings,
-                contentDescription = stringResource(R.string.settings),
-                modifier = Modifier
-                    .size(32.dp)
-                    .clickable { onSettings() },
-                tint = MaterialTheme.colorScheme.primary
-            )
+            IconButton(onClick = onSettings) {
+                Icon(
+                    imageVector = Icons.Default.Settings,
+                    contentDescription = stringResource(R.string.settings),
+                    modifier = Modifier.size(32.dp),
+                    tint = MaterialTheme.colorScheme.primary
+                )
+            }
         }
 
         if (state.isLoading) {
@@ -120,7 +137,7 @@ fun MainScreen(
                     ProgressItem(
                         title = stringResource(R.string.learned_words),
                         value = "${state.learnedWordsCount}/${state.totalWordsCount}",
-                        progress = state.learnedWordsCount.toFloat() / state.totalWordsCount
+                        progress = if (state.totalWordsCount > 0) state.learnedWordsCount.toFloat() / state.totalWordsCount else 0f
                     )
 
                     Spacer(modifier = Modifier.height(16.dp))
@@ -128,7 +145,7 @@ fun MainScreen(
                     // Daily Streak
                     ProgressItem(
                         title = stringResource(R.string.daily_streak),
-                        value = "${state.dailyStreak} дней",
+                        value = stringResource(R.string.days_unit, state.dailyStreak),
                         progress = state.dailyStreak.toFloat() / 30f
                     )
 
@@ -138,7 +155,7 @@ fun MainScreen(
                     ProgressItem(
                         title = stringResource(R.string.learning_time),
                         value = state.learningTime,
-                        progress = 0.5f
+                        progress = calculateTimeProgress(state.learningTime)
                     )
                 }
             }
@@ -154,7 +171,7 @@ fun MainScreen(
                     modifier = Modifier.padding(16.dp)
                 ) {
                     Text(
-                        text = "Прогресс по уровням",
+                        text = stringResource(R.string.level_progress_title),
                         style = MaterialTheme.typography.headlineSmall,
                         color = MaterialTheme.colorScheme.onSurface,
                         fontWeight = FontWeight.Bold
@@ -190,18 +207,18 @@ fun MainScreen(
                 }
             }
 
-            // Action Buttons - ЦЕНТРИРОВАННЫЕ КНОПКИ
+            // Action Buttons
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(16.dp),
                 horizontalArrangement = Arrangement.Center
             ) {
-                // Start Learning Button - ЦЕНТРИРОВАННОЕ СОДЕРЖИМОЕ
+                // Start Learning Button
                 Card(
                     modifier = Modifier
-                        .weight(1f)
-                        .clickable { onStartLearning() },
+                        .weight(1f),
+                    onClick = onStartLearning,
                     colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.primary)
                 ) {
                     Column(
@@ -230,11 +247,11 @@ fun MainScreen(
 
                 Spacer(modifier = Modifier.width(16.dp))
 
-                // Achievements Button - ЦЕНТРИРОВАННОЕ СОДЕРЖИМОЕ
+                // Achievements Button
                 Card(
                     modifier = Modifier
-                        .weight(1f)
-                        .clickable { onAchievements() },
+                        .weight(1f),
+                    onClick = onAchievements,
                     colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.primary)
                 ) {
                     Column(
@@ -265,8 +282,21 @@ fun MainScreen(
     }
 }
 
+private fun calculateTimeProgress(formattedTime: String): Float {
+    return try {
+        val parts = formattedTime.split(":")
+        val hours = parts[0].toInt()
+        val minutes = parts[1].toInt()
+        val totalMinutes = hours * 60 + minutes
+        val goalMinutes = 20f
+        (totalMinutes / goalMinutes).coerceAtMost(1f)
+    } catch (e: Exception) {
+        0f
+    }
+}
+
 @Composable
-fun ProgressItem(
+private fun ProgressItem(
     title: String,
     value: String,
     progress: Float
@@ -311,7 +341,7 @@ fun ProgressItem(
 }
 
 @Composable
-fun LevelProgressItem(
+private fun LevelProgressItem(
     level: String,
     progress: Float
 ) {
@@ -348,7 +378,7 @@ fun LevelProgressItem(
         ) {
             Box(
                 modifier = Modifier
-                    .width(100.dp * progress)
+                    .fillMaxWidth(progress)
                     .height(8.dp)
                     .clip(RoundedCornerShape(4.dp))
                     .background(MaterialTheme.colorScheme.primary)
@@ -361,6 +391,11 @@ fun LevelProgressItem(
 @Composable
 fun MainScreenPreview() {
     NorskAllstarsTheme {
-        MainScreen()
+        MainContent(
+            state = MainScreenState(isLoading = false),
+            onStartLearning = {},
+            onAchievements = {},
+            onSettings = {}
+        )
     }
 }
