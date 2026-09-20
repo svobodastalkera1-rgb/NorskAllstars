@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Norsk Allstars</string>
+    <string name="main_title">Norsk Allstars</string>
+    <string name="progress_title">Ваш прогресс</string>
+    <string name="learned_words">Выучено слов</string>
+    <string name="daily_streak">Дневная серия</string>
+    <string name="learning_time">Время обучения</string>
+    <string name="start_learning">Начать обучение</string>
+    <string name="achievements">Достижения</string>
+    <string name="settings">Настройки</string>
+    <string name="level_a1">Уровень A1</string>
+    <string name="level_a2">Уровень A2</string>
+    <string name="level_b1">Уровень B1</string>
+    <string name="level_b2">Уровень B2</string>
+    <string name="level_progress_title">Прогресс по уровням</string>
+    <string name="days_unit">%1$d дней</string>
+</resources>

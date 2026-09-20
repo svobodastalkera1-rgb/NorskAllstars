@@ -1,0 +1,304 @@
+{
+  "words": [
+    {
+      "norwegian": "og",
+      "russian": "и",
+      "partOfSpeech": "conjunction",
+      "difficulty": "A1"
+    },
+    {
+      "norwegian": "å være",
+      "russian": "быть",
+      "partOfSpeech": "verb",
+      "difficulty": "A1"
+    },
+    {
+      "norwegian": "i",
+      "russian": "в",
+      "partOfSpeech": "preposition",
+      "difficulty": "A1"
+    },
+    {
+      "norwegian": "det",
+      "russian": "это",
+      "partOfSpeech": "pronoun",
+      "difficulty": "A1"
+    },
+    {
+      "norwegian": "at",
+      "russian": "что",
+      "partOfSpeech": "conjunction",
+      "difficulty": "A1"
+    },
+    {
+      "norwegian": "en",
+      "russian": "один",
+      "partOfSpeech": "article",
+      "difficulty": "A1"
+    },
+    {
+      "norwegian": "å ha",
+      "russian": "иметь",
+      "partOfSpeech": "verb",
+      "difficulty": "A1"
+    },
+    {
+      "norwegian": "for",
+      "russian": "для",
+      "partOfSpeech": "preposition",
+      "difficulty": "A1"
+    },
+    {
+      "norwegian": "å si",
+      "russian": "сказать",
+      "partOfSpeech": "verb",
+      "difficulty": "A1"
+    },
+    {
+      "norwegian": "de",
+      "russian": "они",
+      "partOfSpeech": "pronoun",
+      "difficulty": "A1"
+    },
+    {
+      "norwegian": "på",
+      "russian": "на",
+      "partOfSpeech": "preposition",
+      "difficulty": "A1"
+    },
+    {
+      "norwegian": "dette",
+      "russian": "это",
+      "partOfSpeech": "pronoun",
+      "difficulty": "A1"
+    },
+    {
+      "norwegian": "med",
+      "russian": "с",
+      "partOfSpeech": "preposition",
+      "difficulty": "A1"
+    },
+    {
+      "norwegian": "å gjøre",
+      "russian": "делать",
+      "partOfSpeech": "verb",
+      "difficulty": "A1"
+    },
+    {
+      "norwegian": "som",
+      "russian": "как",
+      "partOfSpeech": "conjunction",
+      "difficulty": "A1"
+    },
+    {
+      "norwegian": "han",
+      "russian": "он",
+      "partOfSpeech": "pronoun",
+      "difficulty": "A1"
+    },
+    {
+      "norwegian": "av",
+      "russian": "от",
+      "partOfSpeech": "preposition",
+      "difficulty": "A1"
+    },
+    {
+      "norwegian": "ikke",
+      "russian": "не",
+      "partOfSpeech": "adverb",
+      "difficulty": "A1"
+    },
+    {
+      "norwegian": "å se",
+      "russian": "видеть",
+      "partOfSpeech": "verb",
+      "difficulty": "A1"
+    },
+    {
+      "norwegian": "men",
+      "russian": "но",
+      "partOfSpeech": "conjunction",
+      "difficulty": "A1"
+    },
+    {
+      "norwegian": "tid",
+      "russian": "время",
+      "partOfSpeech": "noun",
+      "difficulty": "A1"
+    },
+    {
+      "norwegian": "mye",
+      "russian": "много",
+      "partOfSpeech": "adverb",
+      "difficulty": "A1"
+    },
+    {
+      "norwegian": "da",
+      "russian": "тогда",
+      "partOfSpeech": "adverb",
+      "difficulty": "A1"
+    },
+    {
+      "norwegian": "å komme",
+      "russian": "приходить",
+      "partOfSpeech": "verb",
+      "difficulty": "A1"
+    },
+    {
+      "norwegian": "du",
+      "russian": "ты",
+      "partOfSpeech": "pronoun",
+      "difficulty": "A1"
+    },
+    {
+      "norwegian": "å ville",
+      "russian": "хотеть",
+      "partOfSpeech": "verb",
+      "difficulty": "A1"
+    },
+    {
+      "norwegian": "vi",
+      "russian": "мы",
+      "partOfSpeech": "pronoun",
+      "difficulty": "A1"
+    },
+    {
+      "norwegian": "mot",
+      "russian": "против",
+      "partOfSpeech": "preposition",
+      "difficulty": "A1"
+    },
+    {
+      "norwegian": "år",
+      "russian": "год",
+      "partOfSpeech": "noun",
+      "difficulty": "A1"
+    },
+    {
+      "norwegian": "å tro",
+      "russian": "верить",
+      "partOfSpeech": "verb",
+      "difficulty": "A1"
+    },
+    {
+      "norwegian": "nå",
+      "russian": "сейчас",
+      "partOfSpeech": "adverb",
+      "difficulty": "A1"
+    },
+    {
+      "norwegian": "under",
+      "russian": "под",
+      "partOfSpeech": "preposition",
+      "difficulty": "A1"
+    },
+    {
+      "norwegian": "å finne",
+      "russian": "находить",
+      "partOfSpeech": "verb",
+      "difficulty": "A1"
+    },
+    {
+      "norwegian": "selv",
+      "russian": "сам",
+      "partOfSpeech": "adverb",
+      "difficulty": "A1"
+    },
+    {
+      "norwegian": "hva",
+      "russian": "что",
+      "partOfSpeech": "pronoun",
+      "difficulty": "A1"
+    },
+    {
+      "norwegian": "over",
+      "russian": "над",
+      "partOfSpeech": "preposition",
+      "difficulty": "A1"
+    },
+    {
+      "norwegian": "land",
+      "russian": "страна",
+      "partOfSpeech": "noun",
+      "difficulty": "A1"
+    },
+    {
+      "norwegian": "her",
+      "russian": "здесь",
+      "partOfSpeech": "adverb",
+      "difficulty": "A1"
+    },
+    {
+      "norwegian": "måtte",
+      "russian": "должен",
+      "partOfSpeech": "verb",
+      "difficulty": "A1"
+    },
+    {
+      "norwegian": "gammel",
+      "russian": "старый",
+      "partOfSpeech": "adjective",
+      "difficulty": "A1"
+    },
+    {
+      "norwegian": "mens",
+      "russian": "пока",
+      "partOfSpeech": "conjunction",
+      "difficulty": "A1"
+    },
+    {
+      "norwegian": "liv",
+      "russian": "жизнь",
+      "partOfSpeech": "noun",
+      "difficulty": "A1"
+    },
+    {
+      "norwegian": "stor",
+      "russian": "большой",
+      "partOfSpeech": "adjective",
+      "difficulty": "A1"
+    },
+    {
+      "norwegian": "hvor",
+      "russian": "где",
+      "partOfSpeech": "adverb",
+      "difficulty": "A1"
+    },
+    {
+      "norwegian": "barn",
+      "russian": "ребенок",
+      "partOfSpeech": "noun",
+      "difficulty": "A1"
+    },
+    {
+      "norwegian": "mann",
+      "russian": "мужчина",
+      "partOfSpeech": "noun",
+      "difficulty": "A1"
+    },
+    {
+      "norwegian": "dag",
+      "russian": "день",
+      "partOfSpeech": "noun",
+      "difficulty": "A1"
+    },
+    {
+      "norwegian": "god",
+      "russian": "хороший",
+      "partOfSpeech": "adjective",
+      "difficulty": "A1"
+    },
+    {
+      "norwegian": "ny",
+      "russian": "новый",
+      "partOfSpeech": "adjective",
+      "difficulty": "A1"
+    },
+    {
+      "norwegian": "snakke",
+      "russian": "говорить",
+      "partOfSpeech": "verb",
+      "difficulty": "A1"
+    }
+  ]
+}
